@@ -25,8 +25,10 @@ return new class extends Migration
     public function down(): void
     {
         //
-        $table->dropColumn('registration_date')->comment("Registration Date")->default(now());
-        $table->dropColumn('last_login_date')->comment("Last Login Date")->nullable();
-        $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('registration_date');
+            $table->dropColumn('last_login_date');
+            $table->timestamps();
+        });
     }
 };

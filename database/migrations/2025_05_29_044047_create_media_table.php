@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('url')->comment('File URL');
             $table->timestamp('upload_date')->comment('Upload date');
             $table->string('description')->comment('Media Description');
-            $table->timestamps();
+
         });
     }
 
