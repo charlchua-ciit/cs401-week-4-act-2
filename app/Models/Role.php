@@ -12,6 +12,8 @@ use Illuminate\Notifications\Notifiable;
 class Role extends Model
 {
     //
+    use HasFactory;
+    protected $guarded = [];
     public function role(): BelongsToMany
     {
         return $this->belongsToMany(User::class,'user_role');

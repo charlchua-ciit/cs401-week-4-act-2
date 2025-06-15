@@ -12,6 +12,8 @@ use Illuminate\Notifications\Notifiable;
 class Tag extends Model
 {
     //
+    use HasFactory;
+    protected $guarded = [];
     public function posts(): BelongsToMany
     {
         return $this->belongsToMany(Post::class,'post_tag');

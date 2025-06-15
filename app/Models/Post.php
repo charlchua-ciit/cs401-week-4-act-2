@@ -13,6 +13,9 @@ use Illuminate\Notifications\Notifiable;
 class Post extends Model
 {
     //
+    use HasFactory;
+    protected $guarded = [];
+    public $timestamps = false;
     public function user(): BelongsToMany
     {
         return $this->belongsToMany(User::class,'user_id');

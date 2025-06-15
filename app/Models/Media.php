@@ -13,6 +13,8 @@ use Illuminate\Notifications\Notifiable;
 class Media extends Model
 {
     //
+    use HasFactory;
+    protected $guarded = [];
     public function posts(): BelongsToMany
     {
         return $this->belongsToMany(Post::class,'post_id');

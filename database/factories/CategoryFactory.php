@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use League\CommonMark\Node\Block\Paragraph;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Category>
@@ -18,6 +19,9 @@ class CategoryFactory extends Factory
     {
         return [
             //
+            'category_name'=>fake()->words(2, true),
+            'slug'=>fake()->slug(),
+            'description'=>fake()->paragraph(),
         ];
     }
 }

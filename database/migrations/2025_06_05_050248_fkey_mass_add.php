@@ -33,12 +33,17 @@ return new class extends Migration
     {
         //
         Schema::table('posts', function (Blueprint $table) {
+            $table->dropForeign(['user_id']); // drop foreign key constraint
             $table->dropColumn('user_id');
         });
+
         Schema::table('comments', function (Blueprint $table) {
+            $table->dropForeign(['user_id']);
             $table->dropColumn('user_id');
         });
+
         Schema::table('media', function (Blueprint $table) {
+            $table->dropForeign(['post_id']);
             $table->dropColumn('post_id');
         });
     }

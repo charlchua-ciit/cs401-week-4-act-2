@@ -51,7 +51,7 @@ return new class extends Migration
         Schema::table('posts', function (Blueprint $table) {
             $table->string('content')->comment('Post Content')->change();
             $table->string('status')->comment('Post Status: D - Draft, P - Published, I - Inactive')->change();
-            $table->string('featured_image_url')->comment('Post Featured Image URL')->change();
+            $table->string('featured_image_url')->comment('Post Featured Image URL')->nullable(false)->change();
         });
         Schema::table('categories', function (Blueprint $table) {
             $table->string('category_name')->comment('Category Name')->change();
@@ -61,8 +61,8 @@ return new class extends Migration
         });
         Schema::table('comments', function (Blueprint $table) {
             $table->string('comment_content')->comment('Comment Content')->change();
-            $table->string('reviewer_name')->comment('Reviewer Name')->change();
-            $table->string('reviewer_email')->comment('Reviewer Email')->change();
+            $table->string('reviewer_name')->comment('Reviewer Name')->nullable(false)->change();
+            $table->string('reviewer_email')->comment('Reviewer Email')->nullable(false)->change();
         });
     }
 };
